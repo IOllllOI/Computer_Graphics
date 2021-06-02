@@ -6,19 +6,31 @@ import math
 lock = Lock()
 st = False
 
+def returnS():
+    for j in range(len(shapes)):
+        shapes[j].draw()
+
 def rotation():
+    copyShapes = []
     while True:
-        lock.acquire()
-        if st is True:
-            break
-        lock.release()
-        angle = math.pi/18
-        global shapes
-        c_clear()
-        for i in range(len(shapes)):
-            shapes[i].rotation(angle)
-            shapes[i].draw()
-        sleep(0.1)
+        angle = 0
+        for i in range(180):
+            lock.acquire()
+            if st is True:
+                break
+            lock.release()
+
+            angle += math.pi/60
+            c_clear()
+            copyShapes.clear()
+            for j in range(len(shapes)):
+                point = algorithms.Point2d(shapes[j].x, shapes[j].y)
+                copyShapes.append(point)
+
+            for j in range(len(copyShapes)):
+                copyShapes[j].rotation(angle)
+                copyShapes[j].draw()
+            # sleep(0.1)
 
 
 

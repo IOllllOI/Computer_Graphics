@@ -61,6 +61,9 @@ b_clear.pack(side = LEFT)
 b_rotation = Button(lf_tools_panel, text = '⁐', command = logic.rotarion_radio_b)
 b_rotation.pack(side = LEFT)
 
+b_ret = Button(lf_tools_panel, text = 'return', command = logic.returnS)
+b_ret.pack(side = LEFT)
+
 canvas.bind('<Motion>', logic.move)
 canvas.bind('<B1-Motion>', logic.drag)
 canvas.bind('<Button-1>', logic.click)

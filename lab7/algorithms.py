@@ -1,6 +1,4 @@
 
-
-
 dpf = lambda x, y: 0
 
 def brezenhem(x, y, anx, any, sx, sy):
